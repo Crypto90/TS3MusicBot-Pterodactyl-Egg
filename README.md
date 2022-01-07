@@ -117,3 +117,99 @@ Permissions:
 
 Input rules:
 required|numeric|max:20
+
+---------------------------------------------------------------------------
+
+Name:
+Bot configuration number
+
+Description:
+A private license can start up to 6 bot instances with 1 license.
+The bot configuration number sets a fixed order which also loads always the same configuration from the license.
+For a private license, 6 bots can use the same license, just set each bot its own configuration bot number 1-6.
+
+For a commercial / reseller license, this is always forced to 1.
+
+
+Environment Variable:
+BOT_NUMBER
+
+Default Value:
+1
+
+Permissions:
+"Users Can View"
+
+Input rules:
+required|numeric|max:1
+
+---------------------------------------------------------------------------
+
+Name:
+HOSTER KEY / SECRET KEY
+
+Description:
+optional:
+
+If a secretkey / hoster key from ts3musicbot.net is set, the bot license can automatically extend if the time runs out and the bot process is still running.
+
+If needed, set as value:
+"-secretkey xxxxxxxxxxxxxxxxxxx" (without the quotes)
+
+
+Environment Variable:
+SECRETKEY
+
+Default Value:
+
+
+Permissions:
+
+
+Input rules:
+nullable|string|max:50
+
+---------------------------------------------------------------------------
+
+Name:
+Disable YT downloads
+
+Description:
+optional:
+Disables the download manager to download from youtube, soundcloud, mixcloud ...
+To disable set the value:
+"-disable-ytdl" (without the quotes)
+
+
+Environment Variable:
+YTDL_DISABLED
+
+Default Value:
+
+
+Permissions:
+"Users Can View"
+
+Input rules:
+nullable|string|max:20
+
+---------------------------------------------------------------------------
+
+Name:
+Enable BETA version
+
+Description:
+To enable beta version instead of stable, set the value to:
+"-beta" (without the quotes)
+
+Environment Variable:
+BETA
+
+Default Value:
+
+
+Permissions:
+"Users Can View", "Users Can Edit"
+
+Input rules:
+nullable|string|max:5
