@@ -131,7 +131,7 @@ Set "query" to enable query for teamspeak.
 The bot configuration number sets a fixed order which also loads always the same configuration from the license.
 For a private license, 6 bots can use the same license, just set each bot its own configuration bot number 1-6.
 
-For a commercial / reseller license, this is always forced to 1.
+> For a commercial / reseller license, this is always forced to 1.
 
 
 ### Environment Variable:
@@ -154,7 +154,6 @@ For a commercial / reseller license, this is always forced to 1.
 ### Description:
 > optional:
 > If a secretkey / hoster key from ts3musicbot.net is set, the bot license can automatically extend if the time runs out and the bot process is still running.
-
 > If needed, set as value:
 "-secretkey xxxxxxxxxxxxxxxxxxx" (without the quotes)
 
@@ -210,8 +209,8 @@ To disable set the value:
 ### Default Value:
 > 
 
-## Permissions:
+### Permissions:
 > "Users Can View", "Users Can Edit"
 
-## Input rules:
+### Input rules:
 > nullable|string|max:5
