@@ -1,0 +1,113 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1",
+        "update_url": null
+    },
+    "exported_at": "2022-01-07T14:20:05-05:00",
+    "name": "TS3MusicBot",
+    "author": "support@ts3musicbot.de",
+    "description": "A powerful MusicBot and ServerBridge for Teamspeak and Discord.\r\nListen music together with your friends on teamspeak and discord. Listen to Youtube, Soundcloud, Mixcloud, Twitch or many more sites. Stream your browser or soundcard sound from home or use the build in server side webbrowser to play any content!\r\nA ServerBridge lets you talk and chat accross different voice servers!",
+    "features": null,
+    "images": [
+        "quay.io\/parkervcp\/pterodactyl-images:debian_openjdk-11-shenandoah"
+    ],
+    "file_denylist": [],
+    "startup": ".\/TS3MusicBot\/TS3MusicBot_runscript.sh -account {{ACCOUNT_LICENSE}} -port {{SERVER_PORT}} -webif-pw {{ADMIN_PASSWORD}} -webif-pw-user {{USER_PASSWORD}} -{{QUERY_MODE}} -max-disk-space {{MAX_DISK_SPACE}} -number {{BOT_NUMBER}} {{YTDL_DISABLED}} {{BETA}} {{SECRETKEY}}",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"Listening on port\",\r\n    \"userInteraction\": []\r\n}",
+        "logs": "{\r\n    \"custom\": true,\r\n    \"location\": \"TS3MusicBot\/system\/logs\/TS3MusicBot_server.log\"\r\n}",
+        "stop": "stop"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n\r\n# TS3MusicBot Installation Script\r\n\r\n# Bot Files: \/mnt\/server\r\n\r\napt-get update\r\napt-get upgrade -y\r\napt-get install dialog apt-utils -y\r\napt-get install curl openssl tar wget bzip2 libdbus-glib-1-2 libgtk-3-0 -y\r\n\r\n# create and change to directory\r\nmkdir \/mnt\/server\r\ncd \/mnt\/server\/\r\n\r\n## download files\r\necho -e \"running: curl -sSL -o TS3MusicBot_v4.5.tar https:\/\/download1.ts3musicbot.net\/TS3MusicBot_v4.5.tar\"\r\ncurl -sSL -o TS3MusicBot_v4.5.tar https:\/\/download1.ts3musicbot.net\/TS3MusicBot_v4.5.tar\r\n \r\n## unpack files\r\necho -e \"unpacking files\"\r\ntar xfv TS3MusicBot_v4.5.tar\r\nrm TS3MusicBot_v4.5.tar\r\n \r\necho -e \"Installation complete! You can now start your TS3MusicBot.\"",
+            "container": "debian:buster-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Account \/ License from ts3musicbot.net",
+            "description": "Your ts3musicbot.net license.\r\nTypically for a private license, this is the account email.\r\nFor a commercial license, it looks like your@email.xy_resellerXXXXXXXXXXXXXX for a reseller license.",
+            "env_variable": "ACCOUNT_LICENSE",
+            "default_value": "your@email.xy",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string|max:50"
+        },
+        {
+            "name": "Webinterface ADMIN password",
+            "description": "The administrator password for the bot webinterface login.",
+            "env_variable": "ADMIN_PASSWORD",
+            "default_value": "ADMIN_PASSWORD",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:50"
+        },
+        {
+            "name": "Webinterface USER password",
+            "description": "The user password for the bot webinterface login.",
+            "env_variable": "USER_PASSWORD",
+            "default_value": "USER_PASSWORD",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:50"
+        },
+        {
+            "name": "Teamspeak QUERY mode",
+            "description": "Set \"noquery\" to disable query for teamspeak.\r\nSet \"query\" to enable query for teamspeak.",
+            "env_variable": "QUERY_MODE",
+            "default_value": "noquery",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:7"
+        },
+        {
+            "name": "Max disk space",
+            "description": "Maximum space in megabyte (MB) the user can upload to the bots music\/radio folders.\r\n0 = no limit\r\n1024 = 1024MB (eg. 1 GB)\r\n2048 = 2048MB (eg. 2GB)\r\n...",
+            "env_variable": "MAX_DISK_SPACE",
+            "default_value": "0",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|numeric|max:20"
+        },
+        {
+            "name": "Bot configuration number",
+            "description": "A private license can start up to 6 bot instances with 1 license.\r\nThe bot configuration number sets a fixed order which also loads always the same configuration from the license.\r\nFor a private license, 6 bots can use the same license, just set each bot its own configuration bot number 1-6.\r\n\r\nFor a commercial \/ reseller license, this is always forced to 1.",
+            "env_variable": "BOT_NUMBER",
+            "default_value": "1",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "required|numeric|max:1"
+        },
+        {
+            "name": "HOSTER KEY \/ SECRET KEY",
+            "description": "optional:\r\n\r\nIf a secretkey \/ hoster key from ts3musicbot.net is set, the bot license can automatically extend if the time runs out and the bot process is still running.\r\n\r\nIf needed, set as value:\r\n\"-secretkey xxxxxxxxxxxxxxxxxxx\" (without the quotes)",
+            "env_variable": "SECRETKEY",
+            "default_value": "",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "nullable|string|max:50"
+        },
+        {
+            "name": "Disable YT downloads",
+            "description": "optional:\r\nDisables the download manager to download from youtube, soundcloud, mixcloud ...\r\nTo disable set the value:\r\n\"-disable-ytdl\" (without the quotes)",
+            "env_variable": "YTDL_DISABLED",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": false,
+            "rules": "nullable|string|max:20"
+        },
+        {
+            "name": "Enable BETA version",
+            "description": "To enable beta version instead of stable, set the value to:\r\n\"-beta\" (without the quotes)",
+            "env_variable": "BETA",
+            "default_value": "",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "nullable|string|max:5"
+        }
+    ]
+}
