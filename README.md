@@ -8,6 +8,9 @@ Listen music together with your friends on teamspeak and discord. Listen to Yout
 A ServerBridge lets you talk and chat accross different voice servers!
 
 
+Startup Command:
+./TS3MusicBot/TS3MusicBot_runscript.sh -account {{ACCOUNT_LICENSE}} -port {{SERVER_PORT}} -webif-pw {{ADMIN_PASSWORD}} -webif-pw-user {{USER_PASSWORD}} -{{QUERY_MODE}} -max-disk-space {{MAX_DISK_SPACE}} -number {{BOT_NUMBER}} {{YTDL_DISABLED}} {{BETA}} {{SECRETKEY}}
+
 
 It comes predefined with this variables:
 
