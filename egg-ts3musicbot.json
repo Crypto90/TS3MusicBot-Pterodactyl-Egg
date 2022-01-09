@@ -4,13 +4,13 @@
         "version": "PTDL_v1",
         "update_url": null
     },
-    "exported_at": "2022-01-09T11:29:51-05:00",
+    "exported_at": "2022-01-09T18:48:30-05:00",
     "name": "TS3MusicBot",
     "author": "support@ts3musicbot.de",
     "description": "A powerful MusicBot and ServerBridge for Teamspeak and Discord.\r\nListen music together with your friends on teamspeak and discord. Listen to Youtube, Soundcloud, Mixcloud, Twitch or many more sites. Stream your browser or soundcard sound from home or use the build in server side webbrowser to play any content!\r\nA ServerBridge lets you talk and chat accross different voice servers!",
     "features": null,
     "images": [
-        "crypto90\/ts3musicbot_pterodactyl:latest"
+        "crypto90\/ts3musicbot_pterodactyl:buster_openjdk11"
     ],
     "file_denylist": [],
     "startup": ".\/TS3MusicBot\/TS3MusicBot_runscript.sh -account {{ACCOUNT_LICENSE}} -port {{SERVER_PORT}} -webif-pw {{ADMIN_PASSWORD}} -webif-pw-user {{USER_PASSWORD}} -{{QUERY_MODE}} -max-disk-space {{MAX_DISK_SPACE}} -number {{BOT_NUMBER}} {{YTDL_DISABLED}} {{BETA}} {{SECRETKEY}} -clibs-dir \/home\/container\/bot_tmp -notportable",
@@ -35,7 +35,7 @@
             "default_value": "your@email.xy",
             "user_viewable": false,
             "user_editable": false,
-            "rules": "required|string|max:100"
+            "rules": "required|string|max:50"
         },
         {
             "name": "Webinterface ADMIN password",
