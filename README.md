@@ -2,6 +2,10 @@
 
 ### This Pterodactyl egg adds official support for TS3MusicBots.
 
+### Requirements:
+> Edit the file /etc/pterodactyl/config.yml on your host ans set tmpfs_size from 100 to a higher value eg. 500.
+> The bot extracts some temporarly files to the /tmp folder, which needs more than the default 100mb space.
+
 ### Description:
 > A powerful MusicBot and ServerBridge for Teamspeak and Discord.
 Listen music together with your friends on teamspeak and discord. Listen to Youtube, Soundcloud, Mixcloud, Twitch or many more sites. Stream your browser or soundcard sound from home or use the build in server side webbrowser to play any content!
