@@ -9,7 +9,7 @@ A ServerBridge lets you talk and chat accross different voice servers!
 
 
 ### Requirements:
-> Edit the file /etc/pterodactyl/config.yml on your host ans set tmpfs_size from 100 to a higher value eg. 500.
+> Edit the file /etc/pterodactyl/config.yml on your host and set tmpfs_size from 100 to a higher value eg. 500.
 > The bot extracts some temporarly files to the /tmp folder, which needs more than the default 100mb space.
 
 
