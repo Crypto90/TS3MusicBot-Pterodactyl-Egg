@@ -4,16 +4,16 @@
         "version": "PTDL_v1",
         "update_url": null
     },
-    "exported_at": "2022-01-07T14:57:28-05:00",
+    "exported_at": "2022-01-09T11:29:51-05:00",
     "name": "TS3MusicBot",
-    "author": "support@ts3musicbot.de",
+    "author": "nico.sprang@googlemail.com",
     "description": "A powerful MusicBot and ServerBridge for Teamspeak and Discord.\r\nListen music together with your friends on teamspeak and discord. Listen to Youtube, Soundcloud, Mixcloud, Twitch or many more sites. Stream your browser or soundcard sound from home or use the build in server side webbrowser to play any content!\r\nA ServerBridge lets you talk and chat accross different voice servers!",
     "features": null,
     "images": [
-        "quay.io\/parkervcp\/pterodactyl-images:debian_openjdk-11-shenandoah"
+        "crypto90\/ts3musicbot_pterodactyl:latest"
     ],
     "file_denylist": [],
-    "startup": ".\/TS3MusicBot\/TS3MusicBot_runscript.sh -account {{ACCOUNT_LICENSE}} -port {{SERVER_PORT}} -webif-pw {{ADMIN_PASSWORD}} -webif-pw-user {{USER_PASSWORD}} -{{QUERY_MODE}} -max-disk-space {{MAX_DISK_SPACE}} -number {{BOT_NUMBER}} {{YTDL_DISABLED}} {{BETA}} {{SECRETKEY}}",
+    "startup": ".\/TS3MusicBot\/TS3MusicBot_runscript.sh -account {{ACCOUNT_LICENSE}} -port {{SERVER_PORT}} -webif-pw {{ADMIN_PASSWORD}} -webif-pw-user {{USER_PASSWORD}} -{{QUERY_MODE}} -max-disk-space {{MAX_DISK_SPACE}} -number {{BOT_NUMBER}} {{YTDL_DISABLED}} {{BETA}} {{SECRETKEY}} -clibs-dir \/home\/container\/bot_tmp -notportable",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Listening on port\",\r\n    \"userInteraction\": []\r\n}",
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\n\r\n# TS3MusicBot Installation Script\r\n\r\n# Bot Files: \/mnt\/server\r\n\r\napt-get update\r\napt-get upgrade -y\r\napt-get install dialog apt-utils -y\r\napt-get install curl openssl tar wget bzip2 libdbus-glib-1-2 libgtk-3-0 -y\r\n\r\n# create and change to directory\r\nmkdir \/mnt\/server\r\ncd \/mnt\/server\/\r\n\r\n## download files\r\necho -e \"running: curl -sSL -o TS3MusicBot_v4.5.tar https:\/\/download1.ts3musicbot.net\/TS3MusicBot_v4.5.tar\"\r\ncurl -sSL -o TS3MusicBot_v4.5.tar https:\/\/download1.ts3musicbot.net\/TS3MusicBot_v4.5.tar\r\n \r\n## unpack files\r\necho -e \"unpacking files\"\r\ntar xfv TS3MusicBot_v4.5.tar\r\nrm TS3MusicBot_v4.5.tar\r\n \r\necho -e \"Installation complete! You can now start your TS3MusicBot.\"",
+            "script": "#!\/bin\/bash\r\n\r\n# TS3MusicBot Installation Script\r\n\r\n# Bot Files: \/mnt\/server\r\n\r\necho -e \"======================= apt-get update =======================\"\r\napt-get update\r\necho -e \"======================= apt-get upgrade =======================\"\r\napt-get upgrade -y\r\necho -e \"======================= apt-get install curl openssl tar =======================\"\r\napt-get install curl openssl tar -y\r\n\r\n\r\n# create and change to directory\r\nmkdir \/mnt\/server\r\ncd \/mnt\/server\/\r\n\r\n## download files\r\necho -e \"running: curl -sSL -o TS3MusicBot_v4.5.tar https:\/\/download1.ts3musicbot.net\/TS3MusicBot_v4.5.tar\"\r\ncurl -sSL -o TS3MusicBot_v4.5.tar https:\/\/download1.ts3musicbot.net\/TS3MusicBot_v4.5.tar\r\n \r\n## unpack files\r\necho -e \"unpacking files\"\r\ntar xfv TS3MusicBot_v4.5.tar\r\nrm TS3MusicBot_v4.5.tar\r\n\r\nmkdir \/mnt\/server\/bot_tmp\r\n \r\necho -e \"Installation complete! You can now start your TS3MusicBot.\"",
             "container": "debian:buster-slim",
             "entrypoint": "bash"
         }
@@ -35,7 +35,7 @@
             "default_value": "your@email.xy",
             "user_viewable": false,
             "user_editable": false,
-            "rules": "required|string|max:80"
+            "rules": "required|string|max:50"
         },
         {
             "name": "Webinterface ADMIN password",
@@ -71,7 +71,7 @@
             "default_value": "0",
             "user_viewable": true,
             "user_editable": false,
-            "rules": "required|numeric|max:20"
+            "rules": "required|numeric"
         },
         {
             "name": "Bot configuration number",
@@ -80,7 +80,7 @@
             "default_value": "1",
             "user_viewable": true,
             "user_editable": false,
-            "rules": "required|numeric|max:1"
+            "rules": "required|numeric"
         },
         {
             "name": "HOSTER KEY \/ SECRET KEY",
