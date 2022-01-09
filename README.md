@@ -8,11 +8,6 @@ Listen music together with your friends on teamspeak and discord. Listen to Yout
 A ServerBridge lets you talk and chat accross different voice servers!
 
 
-### Requirements:
-> Edit the file /etc/pterodactyl/config.yml on your host and set tmpfs_size from 100 to a higher value eg. 500.
-> The bot extracts some temporarly files to the /tmp folder, which needs more than the default 100mb space.
-
-
 ### Startup Command:
 > ./TS3MusicBot/TS3MusicBot_runscript.sh -account {{ACCOUNT_LICENSE}} -port {{SERVER_PORT}} -webif-pw {{ADMIN_PASSWORD}} -webif-pw-user {{USER_PASSWORD}} -{{QUERY_MODE}} -max-disk-space {{MAX_DISK_SPACE}} -number {{BOT_NUMBER}} {{YTDL_DISABLED}} {{BETA}} {{SECRETKEY}}
 
