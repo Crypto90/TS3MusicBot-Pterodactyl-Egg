@@ -34,7 +34,7 @@ Typically for a private license, this is the account email.
 > 
 
 ### Input rules:
-> required|string|max:50
+> required|string|max:100
 
 ---------------------------------------------------------------------------
 
@@ -119,7 +119,7 @@ Set "query" to enable query for teamspeak.
 > "Users Can View"
 
 ### Input rules:
-> required|numeric|max:20
+> required|numeric
 
 ---------------------------------------------------------------------------
 
@@ -144,7 +144,7 @@ For a private license, 6 bots can use the same license, just set each bot its ow
 > "Users Can View"
 
 ### Input rules:
-> required|numeric|max:1
+> required|numeric
 
 ---------------------------------------------------------------------------
 
