@@ -1,6 +1,6 @@
 # TS3MusicBot-Pterodactyl-Egg
 
-### This Pterodactyl.io egg adds official support for TS3MusicBots.
+### This [Pterodactyl.io](https://pterodactyl.io/) egg adds official support for [TS3MusicBots](https://www.ts3musicbot.net/).
 
 ### Description:
 > A powerful MusicBot and ServerBridge for Teamspeak and Discord.
