@@ -14,10 +14,10 @@ RUN apt update \
 	&& apt install -y openjdk-11-jre \
 	&& apt install -y imagemagick \
 	&& apt install -y curl ca-certificates openssl tar unzip bash python3 procps \
-  	&& apt install -y xvfb libglib2.0-0 libxrender-dev libxrandr2 libxcursor-dev libx11-xcb-dev ffmpeg xdotool x11-utils libegl1-mesa libgl1-mesa-dri libnss3 libpci3 libxslt1.1 libxss1 libdbus-glib-1-2 libgtk-3-0 libavcodec-extra* mplayer \
+	&& apt install -y xvfb libglib2.0-0 libxrender-dev libxrandr2 libxcursor-dev libx11-xcb-dev ffmpeg xdotool x11-utils libegl1-mesa libgl1-mesa-dri libnss3 libpci3 libxslt1.1 libxss1 libdbus-glib-1-2 libgtk-3-0 libavcodec-extra* mplayer \
 	&& update-alternatives --install /usr/bin/python python /usr/bin/python3 1 \
 	&& rm -rf /var/lib/apt/lists/* \
-	&& useradd -d /home/container -m container
+	&& useradd -d /home/container -m container \
 	&& chmod 755 /home/container
 	
 USER container
