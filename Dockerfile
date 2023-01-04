@@ -17,6 +17,7 @@ RUN apt update \
 	&& update-alternatives --install /usr/bin/python python /usr/bin/python3 1 \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& useradd -d /home/container -m container
+	&& chmod 755 /home/container
 	
 USER container
 ENV USER container
