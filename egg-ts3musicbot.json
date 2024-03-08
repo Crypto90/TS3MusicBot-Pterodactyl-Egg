@@ -10,7 +10,7 @@
     "description": "A powerful MusicBot and ServerBridge for Teamspeak and Discord.\r\nListen music together with your friends on teamspeak and discord. Listen to Youtube, Soundcloud, Mixcloud, Twitch or many more sites. Stream your browser or soundcard sound from home or use the build in server side webbrowser to play any content!\r\nA ServerBridge lets you talk and chat accross different voice servers!",
     "features": null,
     "images": [
-        "crypto90\/ts3musicbot_pterodactyl:buster_openjdk11"
+        "crypto90\/ts3musicbot_pterodactyl:bullseye_openjdk11"
     ],
     "file_denylist": [],
     "startup": ".\/TS3MusicBot\/TS3MusicBot_runscript.sh -account {{ACCOUNT_LICENSE}} -port {{SERVER_PORT}} -webif-pw {{ADMIN_PASSWORD}} -webif-pw-user {{USER_PASSWORD}} -{{QUERY_MODE}} -max-disk-space {{MAX_DISK_SPACE}} -number {{BOT_NUMBER}} {{YTDL_DISABLED}} {{BETA}} {{SECRETKEY}} -clibs-dir \/home\/container\/bot_tmp -notportable",
@@ -23,7 +23,7 @@
     "scripts": {
         "installation": {
             "script": "#!\/bin\/bash\r\n\r\n# TS3MusicBot Installation Script\r\n\r\n# Bot Files: \/mnt\/server\r\n\r\necho -e \"======================= apt-get update =======================\"\r\napt-get update\r\necho -e \"======================= apt-get upgrade =======================\"\r\napt-get upgrade -y\r\necho -e \"======================= apt-get install curl openssl tar =======================\"\r\napt-get install curl openssl tar -y\r\n\r\n\r\n# create and change to directory\r\nmkdir \/mnt\/server\r\ncd \/mnt\/server\/\r\n\r\n## download files\r\necho -e \"running: curl -sSL -o TS3MusicBot_v4.5.tar https:\/\/download1.ts3musicbot.net\/TS3MusicBot_v4.5.tar\"\r\ncurl -sSL -o TS3MusicBot_v4.5.tar https:\/\/download1.ts3musicbot.net\/TS3MusicBot_v4.5.tar\r\n \r\n## unpack files\r\necho -e \"unpacking files\"\r\ntar xfv TS3MusicBot_v4.5.tar\r\nrm TS3MusicBot_v4.5.tar\r\n\r\nmkdir \/mnt\/server\/bot_tmp\r\n \r\necho -e \"Installation complete! You can now start your TS3MusicBot.\"",
-            "container": "debian:buster-slim",
+            "container": "debian:bullseye-slim",
             "entrypoint": "bash"
         }
     },
