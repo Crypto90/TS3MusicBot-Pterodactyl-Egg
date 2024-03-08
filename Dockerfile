@@ -3,7 +3,7 @@
 ## https://www.TS3MusicBot.net                                    ##
 ## Support: support@ts3musicbot.de                                ##
 ## ============================================================== ##
-FROM bitnami/minideb:buster
+FROM bitnami/minideb:bullseye
 
 MAINTAINER TS3MusicBot.net, <support@ts3musicbot.de>
 
